@@ -6,6 +6,9 @@ Most of the instructions will be on Canvas, but some will be in this here README
 
 Before the start of this lab, please be sure you've installed [git](https://git-scm.com/install/).
 
+> [!IMPORTANT]
+> While this README includes a lot of information, Canvas will include numbered tasks with further instructions on what you must do.
+
 ## Task A - Clone the repository
 
 In your ITSC 1213 labs directory, clone this repository with the following command in the terminal:
