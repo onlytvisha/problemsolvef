@@ -6,48 +6,62 @@ class LinkedListQueue<T> extends AQueue<T> {
         this.tail = null;
     }
 
+    public Node<T> getHead(){
+        return head;
+    }
+    // get tail
+    public Node<T> getTail(){
+        return tail;
+    }
+
+
+    public void setHead(Node<T> head){
+        this.head = head;
+    }
+    public void setTail(Node<T> tail){
+        this.tail = tail;
+    }
+
+
     
     @Override
-    public void push(T element) {
-        Node<T> newNode = new Node<>(element);
+    public void push(Object element) {
+        Node<T>node = new Node<T>(element);
 
-        if (this.head == null) {
-            this.head = newNode;
-        } else {
-            this.tail.setNext(newNode);
-            newNode.setPrev(this.tail);
+        if (getTail() != null) {
+            node.setPrev(getTail());
+            getTail().setNext(node);
         }
 
-        this.tail = newNode;
+        if (getHead() == null){
+        setHead(node);
+        }
+        setTail(node);
+        
+
     }
 
     
     @Override
     public T pop() {
-        if (this.head == null) {
+        if (getHead() == null | getHead().getNext() == null) {
             return null;
         }
 
-        T element = this.head.getElement();
+        T temp = getHead().getElement();
+        setHead(getHead().getNext());
+        return temp;
 
-        this.head = this.head.getNext();
-
-        if (this.head != null) {
-            this.head.setPrev(null);
-        } else {
-            this.tail = null;
-        }
-
-        return element;
+        
     }
 
     
     @Override
     public void display() {
-        Node<T> current = this.head;
-        while (current != null) {
-            System.out.println(current);
-            current = current.getNext();
+        Node<T> check = this.head;
+        while (check.getNext() != null) {
+            System.out.println(check);
+            check = check.getNext();
         }
     }
 
